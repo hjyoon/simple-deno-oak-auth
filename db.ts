@@ -1,6 +1,13 @@
 import { Database } from "https://deno.land/x/aloedb@0.9.0/mod.ts";
 
-const users = new Database({
+export interface User {
+  id: string | number[];
+  email: string;
+  password: string;
+  displayName: string;
+}
+
+const users = new Database<User>({
   path: "./users.json",
   pretty: true,
   autoload: true,
