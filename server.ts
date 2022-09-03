@@ -2,7 +2,7 @@ import { Application } from "https://deno.land/x/oak@v10.6.0/mod.ts";
 import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";
 import { Router } from "https://deno.land/x/oak@v10.6.0/mod.ts";
 import { time } from "https://deno.land/x/time.ts@v2.0.1/mod.ts";
-import { login, register, me } from "./routes.ts";
+import { login, register, access, refresh, me } from "./routes.ts";
 
 const port = 8000;
 const app = new Application();
@@ -25,6 +25,8 @@ app.use(router.allowedMethods());
 router
   .post("/api/v1/register", register)
   .post("/api/v1/login", login)
+  .post("/api/v1/access", access)
+  .post("/api/v1/refresh", refresh)
   .get("/api/v1/me", me);
 
 app.addEventListener("listen", () => {

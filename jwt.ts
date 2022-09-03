@@ -10,6 +10,8 @@ export const key: CryptoKey = await crypto.subtle.generateKey(
   ["sign", "verify"]
 );
 
-export const payload: Payload = { exp: getNumericDate(60 * 1) };
+export const accessPayload: Payload = { exp: getNumericDate(60 * 1) };
+
+export const refreshPayload: Payload = { exp: getNumericDate(60 * 60) };
 
 export const header: Header = { alg: "HS512", typ: "JWT" };

@@ -5,6 +5,7 @@ export interface User {
   email: string;
   password: string;
   displayName: string;
+  refreshToken: string;
 }
 
 const users = new Database<User>({
